@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Color Modifier</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Alter the color (Lighten ☀️/ Darken 🌙)</h1>
+    </div>
+    <label for="hex">Color (in Hex)</label>
+    <input type="text" name="hex" id="hexIn" placeholder="#000000">
+
+    <label for="slider" id="sliderText">0%</label>
+    <input type="range" min="0" max="100" value="0" class="slider" name="slider" id="slider">
+
+    <p>Input Color:</p>
+    <div class="inputColor" class="box"></div>
+    
+    <p>New Color:</p>
+    <div class="outputColor" class="box"></div>
+</body>
+</html>
