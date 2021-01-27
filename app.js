@@ -52,3 +52,11 @@ const convertRGBtoHex = (r, g, b) => {
 }
 
 console.log(convertRGBtoHex(255, 255, 255)); //testing
+
+//manipulating the slider
+const slider = document.getElementById('slider');
+const sliderText = document.getElementById('sliderText');
+
+slider.addEventListener('input', () => {
+  sliderText.textContent = `${slider.value}%`;
+})
