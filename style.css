@@ -56,6 +56,6 @@ input[type=text]{
 .card .box{
     height: 400px;
     width: 100%;
-    background: #f9bc60;
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 2px;
 }
