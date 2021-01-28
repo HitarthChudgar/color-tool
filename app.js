@@ -1,3 +1,30 @@
+//manipulating the slider
+const slider = document.getElementById('slider');
+const sliderText = document.getElementById('sliderText');
+
+//modifying inputColor on the box div dynamically
+const hexIn = document.getElementById('hexIn');
+const inputColor = document.getElementById('inputColor');
+const alteredColor = document.getElementById('outputColor');
+const alteredColorText = document.getElementById('outputColorText')
+
+//toggle
+const lightenText = document.getElementById('lightenText');
+const darkenText = document.getElementById('darkenText');
+const toggleBtn = document.getElementById('toggleBtn');
+
+toggleBtn.addEventListener('click', () => {
+    if (toggleBtn.classList.contains('toggled')) {
+        toggleBtn.classList.remove('toggled');
+        lightenText.classList.remove('unselected');
+        darkenText.classList.add('unselected');
+    } else {
+        toggleBtn.classList.add('toggled');
+        lightenText.classList.add('unselected');
+        darkenText.classList.remove('unselected');
+    }
+})
+
 //checking if the hex input is valid or not
 const validHex = (hex) => {
     if (!hex) {
@@ -6,12 +33,6 @@ const validHex = (hex) => {
     const stripHex = hex.replace('#', '');
     return stripHex.length === 3 || stripHex.length === 6;
 }
-
-//modifying inputColor on the box div dynamically
-const hexIn = document.getElementById('hexIn');
-const inputColor = document.getElementById('inputColor');
-const alteredColor = document.getElementById('outputColor');
-const alteredColorText = document.getElementById('outputColorText')
 
 hexIn.addEventListener('keyup', () => {
     const hex = hexIn.value; //whatever is inputted by the user
@@ -55,12 +76,8 @@ const convertRGBtoHex = (r, g, b) => {
 
 console.log(convertRGBtoHex(255, 255, 255)); //testing
 
-//manipulating the slider
-const slider = document.getElementById('slider');
-const sliderText = document.getElementById('sliderText');
-
 slider.addEventListener('input', () => {
-    if(!validHex(hexIn.value)) return;
+    if (!validHex(hexIn.value)) return;
     sliderText.textContent = `${slider.value}%`;
     //get the altered hex value
     const alteredHex = alterColor(hexIn.value, slider.value);
@@ -88,4 +105,3 @@ const alterColor = (hex, percentage) => {
 }
 
 console.log(alterColor('000', 10)); //testing the amount reduction
-
