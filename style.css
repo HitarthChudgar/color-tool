@@ -1,21 +1,22 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Poppins', sans-serif;
     background: #fef6e4;
-    position: fixed; /*cancel out any relative positioning*/
+    position: absolute;
+    /*cancel out any relative positioning*/
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.card{
+.card {
     display: flex;
     flex-direction: column;
     width: 900px;
@@ -25,14 +26,14 @@ body{
     background: #172c66;
     -webkit-box-shadow: 5px 11px 14px 1px rgba(23, 44, 102, 0.3);
     box-shadow: 5px 11px 14px 1px rgba(23, 44, 102, 0.3);
-} 
+}
 
-.card .container h1{
+.card .container h1 {
     color: #fef6e4;
     margin: 0px 0px 20px 0px;
 }
 
-.card label{
+.card label {
     color: #fef6e4;
     margin: 10px 0px 5px 0px;
 }
@@ -42,18 +43,18 @@ body{
     margin: 0px 0px 10px 0px;
 }
 
-input[type=text]{
+input[type=text] {
     padding: 10px 5px 10px 5px;
     border: none;
     border-radius: 4px;
 }
 
-.card p{
+.card p {
     color: #fef6e4;
     margin: 10px 0px 10px 0px;
 }
 
-.card .box{
+.card .box {
     height: 400px;
     width: 100%;
     background: rgba(255, 255, 255, 0.7);
@@ -61,13 +62,13 @@ input[type=text]{
 }
 
 /*creating the toggle button*/
-.toggle{
+.toggle {
     display: flex;
     align-items: center;
     margin: 10px 0 10px 0;
 }
 
-.toggle-btn{
+.toggle-btn {
     width: 50px;
     height: 25px;
     background-color: grey;
@@ -76,7 +77,7 @@ input[type=text]{
     margin: 0 10px;
 }
 
-.inner-circle{
+.inner-circle {
     width: 15px;
     height: 15px;
     border-radius: 50%;
