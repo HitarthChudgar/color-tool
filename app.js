@@ -13,18 +13,6 @@ const lightenText = document.getElementById('lightenText');
 const darkenText = document.getElementById('darkenText');
 const toggleBtn = document.getElementById('toggleBtn');
 
-toggleBtn.addEventListener('click', () => {
-    if (toggleBtn.classList.contains('toggled')) {
-        toggleBtn.classList.remove('toggled');
-        lightenText.classList.remove('unselected');
-        darkenText.classList.add('unselected');
-    } else {
-        toggleBtn.classList.add('toggled');
-        lightenText.classList.add('unselected');
-        darkenText.classList.remove('unselected');
-    }
-})
-
 //checking if the hex input is valid or not
 const validHex = (hex) => {
     if (!hex) {
@@ -40,6 +28,7 @@ hexIn.addEventListener('keyup', () => {
         return;
     const stripHex = hex.replace('#', '');
     inputColor.style.backgroundColor = "#" + stripHex; //auto adding # to it
+    reset()
 })
 
 //converting hex to rgb
@@ -79,8 +68,12 @@ console.log(convertRGBtoHex(255, 255, 255)); //testing
 slider.addEventListener('input', () => {
     if (!validHex(hexIn.value)) return;
     sliderText.textContent = `${slider.value}%`;
+    const valueAddition =
+        toggleBtn.classList.contains('toggled') ?
+        -slider.value :
+        slider.value; //stays same and positive
     //get the altered hex value
-    const alteredHex = alterColor(hexIn.value, slider.value);
+    const alteredHex = alterColor(hexIn.value, valueAddition);
     alteredColor.style.backgroundColor = alteredHex;
     alteredColorText.innerText = `Altered Color ${alteredHex}`;
 })
@@ -105,3 +98,27 @@ const alterColor = (hex, percentage) => {
 }
 
 console.log(alterColor('000', 10)); //testing the amount reduction
+
+//toggle functionality
+toggleBtn.addEventListener('click', () => {
+    if (toggleBtn.classList.contains('toggled')) {
+        toggleBtn.classList.remove('toggled');
+        lightenText.classList.remove('unselected');
+        darkenText.classList.add('unselected');
+    } else {
+        toggleBtn.classList.add('toggled');
+        lightenText.classList.add('unselected');
+        darkenText.classList.remove('unselected');
+    }
+    reset();
+})
+
+
+//reset color after toggle switch
+
+const reset = () => {
+    slider.value = 0;
+    sliderText.innerText = `0%`;
+    outputColorText.style.backgroundColor = hexIn.value;
+    outputColorText.innerText = `New Color: ${hexIn.value}`;
+}
