@@ -19,7 +19,7 @@ body{
     display: flex;
     flex-direction: column;
     width: 900px;
-    height: 500px;
+    height: 600px;
     padding: 40px;
     border-radius: 12px;
     background: #172c66;
@@ -58,4 +58,37 @@ input[type=text]{
     width: 100%;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 2px;
+}
+
+/*creating the toggle button*/
+.toggle{
+    display: flex;
+    align-items: center;
+    margin: 10px 0 10px 0;
+}
+
+.toggle-btn{
+    width: 50px;
+    height: 25px;
+    background-color: grey;
+    border-radius: 25px;
+    padding: 5px;
+    margin: 0 10px;
+}
+
+.inner-circle{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+    transition: all 250ms ease-in-out;
+}
+
+.toggle-btn.toggled>.inner-circle {
+    transform: translateX(25px);
+    background-color: #333;
+}
+
+.unselected {
+    opacity: 0.3;
 }
