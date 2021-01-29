@@ -75,7 +75,7 @@ slider.addEventListener('input', () => {
     //get the altered hex value
     const alteredHex = alterColor(hexIn.value, valueAddition);
     alteredColor.style.backgroundColor = alteredHex;
-    alteredColorText.innerText = `Altered Color ${alteredHex}`;
+    alteredColorText.innerText = `New Color: ${alteredHex}`;
 })
 
 //make sure it doesn't cross 255
